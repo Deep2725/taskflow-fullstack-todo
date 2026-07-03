@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">  //npm run dev
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TaskFlow — Full Stack Todo App</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- AUTH SCREEN -->
+  <div id="authScreen" class="auth-container">
+    <div class="auth-card">
+      <h1>TaskFlow</h1>
+      <p class="subtitle">Organize your day, the smart way.</p>
+
+      <div id="authError" class="error-msg"></div>
+
+      <form id="loginForm" class="auth-form">
+        <input type="email" id="loginEmail" placeholder="Email" required />
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+
+      <form id="registerForm" class="auth-form hidden">
+        <input type="text" id="registerName" placeholder="Full Name" required />
+        <input type="email" id="registerEmail" placeholder="Email" required />
+        <input type="password" id="registerPassword" placeholder="Password (min 6 chars)" required />
+        <button type="submit">Create Account</button>
+      </form>
+
+      <p class="toggle-text">
+        <span id="toggleToRegister">New here? Create an account</span>
+        <span id="toggleToLogin" class="hidden">Already have an account? Login</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- APP SCREEN -->
+  <div id="appScreen" class="app-container hidden">
+    <header class="app-header">
+      <h1>TaskFlow</h1>
+      <div class="user-info">
+        <span id="userName"></span>
+        <button id="logoutBtn">Logout</button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <form id="addTodoForm" class="add-todo-form">
+        <input type="text" id="todoInput" placeholder="What needs to be done?" required />
+        <select id="prioritySelect">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+        <button type="submit">Add</button>
+      </form>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+
+      <ul id="todoList" class="todo-list"></ul>
+      <p id="emptyState" class="empty-state hidden">No tasks yet. Add one above!</p>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
